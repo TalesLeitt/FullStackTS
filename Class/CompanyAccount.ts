@@ -6,10 +6,16 @@ export class CompanyAccount extends Account {
 
     constructor(name: String, accountNumber: number, balance: number) {
         super(name, accountNumber, balance);
+        this.overbalance = 0;
     }
 
-    getLoan = (amout: number): void => {
-        this.overbalance = this.overbalance + amout;
-        console.log(`You took out a loan of $${amout}`);
+    getLoan = (loanAmount: number): void => {
+        try {
+            this._internalCreditOperatio(loanAmount);
+            this.overbalance += loanAmount;
+            console.log(`You took out a loan of $${loanAmount}. Updated balance: $${this.getBalance()}.`)
+        } catch (error) {
+            console.error('Failed to Complete')
+        }   
     }
 }

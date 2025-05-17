@@ -10,9 +10,13 @@ export class PeopleAccountPlus extends Account {
         this.doc_id = doc_id;
     }
 
-     deposit = (amount: number): void => {
-        this.overbalance = this.getBalance();
-        console.log(`You deposited an amount: $${amount}`);
-        
+    deposit = (loanAmount: number): void => {
+        try {
+            this._internalCreditOperatio(loanAmount + 10);
+            this.overbalance += loanAmount;
+            console.log(`You took out a loan of $${loanAmount}. Updated balance: $${this.getBalance()}.`)
+        } catch (error) {
+            console.error('Failed to Complete')
+        }   
     }
 }
