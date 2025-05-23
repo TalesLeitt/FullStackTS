@@ -1,10 +1,14 @@
-import { Box } from "@chakra-ui/react"
-import { login } from "../../services/login"
+import { Button } from "@chakra-ui/react"
+import { MouseEventHandler } from "react";
 
-export const LoginButton = () => {
+interface IDButton {
+    onClick: MouseEventHandler;
+}
+
+export const LoginButton = ({ onClick }: IDButton) => {
     return (
-        <Box
-        onClick={login}
+        <Button
+        onClick={onClick}
         as='button'
         height='100%'
         lineHeight='1.2'
@@ -31,6 +35,6 @@ export const LoginButton = () => {
         margin='10px'
         >
             Login    
-        </Box>
+        </Button>
     )
 }
