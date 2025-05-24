@@ -26,7 +26,7 @@ export const Card = () => {
 
   return (
     <>    
-      <Box bg="teal.500" w="100%" h="100vh" padding="4">
+      <Box bg="teal.500" w="100%" h="100vh" padding="4" borderRadius={15}>
         <AbsoluteCenter w="70%" color="white">
           <FormControl isRequired>
             <Stack spacing={3}>
