@@ -1,20 +1,19 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Account from './pages/Account';
+import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
-import { Layout } from './components/Layout/Layout';
+import { Layout } from './components/Layout';
+import { AppContextProvider } from './components/AppContext';
+import MainRoutes from './routes';
 
 function App() {
   return (
     <BrowserRouter>
-    <ChakraProvider>
-      <Layout>
-        <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/account' element={<Account/>} />
-        </Routes>
-      </Layout>
-    </ChakraProvider>    
+      <AppContextProvider>
+        <ChakraProvider>
+          <Layout>
+            <MainRoutes/>
+          </Layout>
+        </ChakraProvider> 
+      </AppContextProvider>   
     </BrowserRouter>
   );
 }
