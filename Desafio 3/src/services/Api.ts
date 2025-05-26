@@ -1,12 +1,4 @@
-type Account = {
-    email: string,
-    password: string,
-    user: string,
-    balance: number,
-    id: string
-}
-
-const account: Account = {
+const account = {
     email: 'tales@email',
     password: 'talessenha',
     user: 'TalesLeitt',

@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import React from "react";
 import { AppContext } from "../components/AppContext";
 import { useNavigate } from "react-router-dom";
+import { changeLocalStorage } from "../services/storage";
 
 const Home = () => {
 
@@ -21,6 +22,7 @@ const Home = () => {
       }
 
       setIsLoggedIn(true);
+      changeLocalStorage({login: true})
       navigate('/account/1')
     } 
 
@@ -28,9 +30,9 @@ const Home = () => {
         <Center w="100%" color="white">
           <Box padding={25} w='50%'>
             <Card>
-              <FormControl isRequired>
+              <FormControl isRequired id="form">
                 <Stack spacing={3}>              
-                  <Input placeholder="Email" _placeholder={{ color: "white", opacity: "0.5"}} value={email} onChange={(event) => setEmail(event.target.value)}/>
+                  <Input id="input" placeholder="Email" _placeholder={{ color: "white", opacity: "0.5"}} value={email} onChange={(event) => setEmail(event.target.value)}/>
                     <PasswordInput />
                 </Stack> 
                 <Center mt={4}>
